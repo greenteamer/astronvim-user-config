@@ -70,10 +70,10 @@ local config = {
                         listchars = { eol = '↲', tab = '▸ ', space = '·' },
                 },
                 g = {
-                        sneak = {
-                                label = 1,
-                                streak = 1,
-                        },
+                        -- sneak = {
+                        --         label = 1,
+                        --         streak = 1,
+                        -- },
                         mapleader = ",", -- sets vim.g.mapleader
                         autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
                         cmp_enabled = true, -- enable completion at start
@@ -231,7 +231,7 @@ local config = {
                         ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
                         ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
                         -- quick save
-                        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+                        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
                 },
                 t = {
                         -- setting a mapping to false will disable it
@@ -264,7 +264,16 @@ local config = {
                         { "joshdick/onedark.vim" },
                         { "morhetz/gruvbox" },
                         { "catppuccin/nvim", as = "catppuccin" },
-                        -- { "justinmk/vim-sneak" },
+                        { "justinmk/vim-sneak" },
+                        {
+                                "kylechui/nvim-surround",
+                                tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+                                config = function()
+                                        require("nvim-surround").setup({
+                                                -- Configuration here, or leave empty to use defaults
+                                        })
+                                end
+                        },
                         -- { "easymotion/vim-easymotion" },
                         -- { "EdenEast/nightfox.nvim" },
                         {
@@ -353,6 +362,23 @@ local config = {
         -- augroups/autocommands and custom filetypes also this just pure lua so
         -- anything that doesn't fit in the normal config locations above can go here
         polish = function()
+                local opts = { noremap = true, silent = true }
+                local map = vim.api.nvim_set_keymap
+                local set = vim.opt
+                -- Set options
+                -- map f <Plug>Sneak_f
+                map("n", "f", "<Plug>SneakLabel_s", opts)
+                map("n", "F", "<Plug>SneakLabel_S", opts)
+                map("n", "t", "<Plug>Sneak_s", opts)
+                map("n", "T", "<Plug>Sneak_S", opts)
+                -- map F <Plug>Sneak_F
+                -- map t <Plug>Sneak_t
+                -- map T <Plug>Sneak_T
+                -- set.relativenumber = true
+
+                -- Set key bindings
+                -- map("n", "<C-s>", ":w!<CR>", opts)
+
                 -- Set up custom filetypes
                 -- vim.filetype.add {
                 --   extension = {
