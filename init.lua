@@ -39,8 +39,11 @@ local config = {
         -- colorscheme = "gruvbox",
         -- colorscheme = "dayfox",
         -- colorscheme = "catppuccin-latte",
+        colorscheme = "catppuccin-macchiato",
+        -- colorscheme = "catppuccin-mocha",
+        -- colorscheme = "catppuccin-frappe",
         -- colorscheme = "onehalflight",
-        colorscheme = "PaperColor",
+        -- colorscheme = "PaperColor",
         -- colorscheme = "space_vim_theme",
         -- colorscheme = "mac_classic",
         -- colorscheme = "paper",
@@ -60,7 +63,7 @@ local config = {
                 opt = {
                         -- set to true or false etc.
                         -- t_Co = 256,
-                        background = "light",
+                        -- background = "light",
                         relativenumber = true, -- sets vim.opt.relativenumber
                         number = true, -- sets vim.opt.number
                         spell = false, -- sets vim.opt.spell
@@ -70,10 +73,6 @@ local config = {
                         listchars = { eol = '↲', tab = '▸ ', space = '·' },
                 },
                 g = {
-                        -- sneak = {
-                        --         label = 1,
-                        --         streak = 1,
-                        -- },
                         mapleader = ",", -- sets vim.g.mapleader
                         autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
                         cmp_enabled = true, -- enable completion at start
@@ -264,7 +263,16 @@ local config = {
                         { "joshdick/onedark.vim" },
                         { "morhetz/gruvbox" },
                         { "catppuccin/nvim", as = "catppuccin" },
-                        { "justinmk/vim-sneak" },
+                        { "justinmk/vim-sneak",
+                                -- config = function()
+                                --         require("vim-sneak").setup({
+                                --                 -- Configuration here, or leave empty to use defaults
+                                --                 sneak = {
+                                --                         use_ic_scs = 1,
+                                --                 },
+                                --         })
+                                -- end
+                        },
                         {
                                 "kylechui/nvim-surround",
                                 tag = "*", -- Use for stability; omit to use `main` branch for the latest features
