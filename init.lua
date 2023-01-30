@@ -13,7 +13,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 vim.opt.rtp:append("/Users/aleks/.opam/default/share/ocp-indent/vim")
 
-
 local config = {
 
         -- Configure AstroNvim updates
@@ -37,100 +36,17 @@ local config = {
 
         -- Set colorscheme to use
         -- colorscheme = "default_theme",
-        -- colorscheme = "ondedark",
-        -- colorscheme = "gruvbox",
-        -- colorscheme = "solarized",
-        -- colorscheme = "monokai_pro",
-        -- colorscheme = "OceanicNext",
-        -- colorscheme = "catppuccin-latte",
-        -- colorscheme = "catppuccin-macchiato",
-        -- colorscheme = "catppuccin-mocha",
-        -- colorscheme = "catppuccin-frappe",
-        -- colorscheme = "onehalflight",
-        -- colorscheme = "github",
-        -- colorscheme = "github",
-        -- colorscheme = "rose-pine",
-        -- colorscheme = "pencil",
-        -- colorscheme = "kanagawa",
-        -- colorscheme = "everforest",
-        -- colorscheme = "xcodelight",
-        -- colorscheme = "PaperColor",
-        -- colorscheme = "space_vim_theme",
-        -- colorscheme = "mac_classic",
-        -- colorscheme = "summerfruit256",
-        -- colorscheme = "paper",
-        -- colorscheme = "dawnfox",
-        -- colorscheme = "one",
-        -- colorscheme = "oxocarbon",
-        -- colorscheme = "two-firewatch",
-        -- colorscheme = "sunbather",
-        -- colorscheme = "stellarized",
-        -- colorscheme = "solarized8_low",
-        -- colorscheme = "snow",
-        -- colorscheme = "paramount",
-        -- colorscheme = "soft-stone",
-        --
-        -- colorscheme = "solarized8_high",
-        -- colorscheme = "scheakur",
-        -- colorscheme = "github",
-        colorscheme = "onehalflight",
-        --
+        colorscheme = "gruvbox",
 
-        -- Add highlight groups in any theme
-        highlights = {
-                -- init = { -- this table overrides highlights in all themes
-                --   Normal = { bg = "#000000" },
-                -- }
-                -- duskfox = { -- a table of overrides/changes to the duskfox theme
-                --   Normal = { bg = "#000000" },
-                -- },
-        },
 
-        -- set vim options here (vim.<first_key>.<second_key> = value)
-        -- options = {
-        --         opt = {
-        --                 -- set to true or false etc.
-        --                 -- syntax = "enable",
-        -- background = "light",
-        --                 -- background = "dark",
-        --                 -- termguicolors = true,
-        --                 relativenumber = true, -- sets vim.opt.relativenumber
-        --                 number = true, -- sets vim.opt.number
-        --                 spell = false, -- sets vim.opt.spell
-        --                 signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-        --                 wrap = false, -- sets vim.opt.wrap
-        --                 -- list = true,
-        --                 list = false,
-        --                 listchars = { eol = '↲', tab = '▸ ', space = '·' },
-        --         },
-        --         g = {
-        --                 mapleader = ",", -- sets vim.g.mapleader
-        --                 autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-        --                 cmp_enabled = true, -- enable completion at start
-        --                 autopairs_enabled = true, -- enable autopairs at start
-        --                 diagnostics_enabled = true, -- enable diagnostics at start
-        --                 status_diagnostics_enabled = true, -- enable diagnostics in statusline
-        --                 icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
-        --                 ui_notifications_enabled = false, -- disable notifications when toggling UI elements
-        --         },
-        -- },
         -- If you need more control, you can use the function()...end notation
         options = function(local_vim)
-                local_vim.opt.background = "light"
+                local_vim.opt.background = "dark"
                 local_vim.opt.relativenumber = true
                 local_vim.opt.number = true
                 local_vim.opt.spell = false
                 local_vim.opt.signcolumn = "auto"
                 local_vim.opt.list = false
-
-                -- solarized
-                -- vim.g.solarized_italic_comments = true
-                -- vim.g.solarized_italic_keywords = true
-                -- vim.g.solarized_italic_functions = true
-                -- vim.g.solarized_italic_variables = false
-                -- vim.g.solarized_contrast = true
-                -- vim.g.solarized_borders = false
-                -- vim.g.solarized_disable_background = false
 
                 local_vim.g.mapleader = ","
                 local_vim.g.autoformat_enabled = true
@@ -140,9 +56,6 @@ local config = {
                 local_vim.g.status_diagnostics_enabled = true
                 local_vim.g.icons_enabled = true
                 local_vim.g.ui_notifications_enabled = false
-                -- local_vim.opt.whichwrap = vim.opt.whichwrap - { 'b', 's' } -- removing option from list
-                -- local_vim.opt.shortmess = vim.opt.shortmess + { I = true } -- add to option list
-
                 return local_vim
         end,
 
@@ -296,6 +209,8 @@ local config = {
                 init = {
                         -- You can disable default plugins as follows:
                         -- ["goolord/alpha-nvim"] = { disable = true },
+                        ["rcarriga/nvim-notify"] = { disable = true },
+                        ["rebelot/heirline.nvim"] = { disable = true },
                         -- ["nvim-neo-tree/neo-tree.nvim"] = {
                         --         config = function()
                         --                 require("neo-tree").setup({
@@ -317,32 +232,19 @@ local config = {
 
                         -- You can also add new plugins here as well:
                         -- Add plugins, the packer syntax without the "use"
-                        { "YorickPeterse/vim-paper" },
-                        { "nelstrom/vim-mac-classic-theme" },
-                        { "liuchengxu/space-vim-theme" },
-                        { "NLKNguyen/papercolor-theme" },
-                        { "sonph/onehalf" },
-                        { "rafi/awesome-vim-colorschemes" },
-                        -- { "sonph/onehalf/tree/master/vim" },
-                        { "preservim/vim-colors-pencil" },
-                        { "ayu-theme/ayu-vim" },
-                        { "joshdick/onedark.vim" },
-                        -- { "endel/vim-github-colorscheme" },
-                        { "telamon/vim-color-github" },
-                        { "rose-pine/neovim" },
-                        { "rakr/vim-one" },
-                        { "morhetz/gruvbox" },
+                        { "ellisonleao/gruvbox.nvim",
+
+                                config = function()
+                                        require("gruvbox").setup({
+                                                transparent_mode = true,
+                                        })
+                                end
+                        },
                         { "rebelot/kanagawa.nvim" },
-                        { "phanviet/vim-monokai-pro" },
-                        { "mhartington/oceanic-next" },
-                        { "catppuccin/nvim", as = "catppuccin" },
                         { "vim-scripts/summerfruit256.vim" },
-                        { "shaunsingh/solarized.nvim" },
                         { "arzg/vim-colors-xcode" },
                         { 'nyoom-engineering/oxocarbon.nvim' },
-                        { "sainnhe/everforest" },
                         { 'adelarsq/neofsharp.vim' },
-                        { "mswift42/vim-themes" },
                         { "justinmk/vim-sneak",
                                 -- config = function()
                                 --         require("vim-sneak").setup({
@@ -361,38 +263,6 @@ local config = {
                                                 -- Configuration here, or leave empty to use defaults
                                         })
                                 end
-                        },
-                        {
-                                "EdenEast/nightfox.nvim",
-                                config = function()
-                                        require("nightfox").setup {
-                                                -- disable extra plugins that AstroNvim doesn't use (this is optional)
-                                                modules = {
-                                                        barbar = false,
-                                                        dashboard = false,
-                                                        fern = false,
-                                                        fidget = false,
-                                                        gitgutter = false,
-                                                        glyph_palette = false,
-                                                        illuminate = false,
-                                                        lightspeed = false,
-                                                        lsp_saga = false,
-                                                        lsp_trouble = false,
-                                                        modes = false,
-                                                        neogit = false,
-                                                        nvimtree = false,
-                                                        pounce = false,
-                                                        sneak = true,
-                                                        symbols_outline = false,
-                                                },
-                                                groups = {
-                                                        all = {
-                                                                -- add highlight group for AstroNvim's built in URL highlighting
-                                                                HighlightURL = { style = "underline" },
-                                                        },
-                                                },
-                                        }
-                                end,
                         },
                         -- { "andweeb/presence.nvim" },
                         -- {
